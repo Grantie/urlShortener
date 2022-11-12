@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Created</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            URL Created!
+        </h1>
+        <div class="info form-floating">
+            <input type="text" id="short" readonly class="form-control" value="http://localhost:5000/<%= short %>">
+            <label for="short">Short URL</label>
+        </div>
+        <div class="info form-floating">
+            <input type="text" id="full" readonly class="form-control" value="<%= full %>">
+            <label for="full">Full URL</label>
+        </div>
+    </div>
+</body>
+</html>

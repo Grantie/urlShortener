@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1>
+            URL Shortener
+        </h1>
+        <p>
+            By <a href="https://tikogrant.com" target="_blank">Grant</a>
+        </p>
+        <form action="/create" class="form-floating form-inline createForm" method="POST">
+            <input type="text" name="full" id="fullURL" class="form-control" />
+            <label for="fullURL">Full URL</label>
+            <button class="btn btn-outline-success my-4 createFormSubmitBtn">
+                Shorten URL
+            </button>
+        </form>
+        <hr>
+        <table class="table table-striped table-responsive">
+            <thead>
+                <tr>
+                    <th>
+                        Shortened URL
+                    </th>
+                    <th>
+                        Clicks
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% shortenedUrls.forEach(shortUrl => { %>
+                    <tr>
+                        <td>
+                            <a href="http://localhost:5000/<%= shortUrl.short %>" target="_blank"><%= shortUrl.short %></a>
+                        </td>
+                        <td>
+                            <%= shortUrl.clicks %>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.querySelector(".createForm").addEventListener("submit", (e) => {
+            document.querySelector(".createFormSubmitBtn").disabled = true;
+        });
+    </script>
+</body>
+</html>
